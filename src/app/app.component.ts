@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Config } from "ngx-countdown";
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  config = {leftTime: 10, template: '$!h!:$!m!:$!s!'};
+  counter = 20;
 
-  
+  // constructor private function() 
+  config: Config = {
+    leftTime: this.counter,
+    template: '$!h!:$!m!:$!s!',
+    notify: [10],
+  }
+
+  onNotify(event): void {
+    // this.counter = 100;
+    console.log('Left', event.time);
+  }
+
+  onStart(): void {
+    console.log('Start OK!');
+  }
+
+  onFinished(): void {
+    console.log('Finsihed OK!');
+  }
+
 }
